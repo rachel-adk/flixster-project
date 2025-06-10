@@ -1,0 +1,7 @@
+.MovieCard{
+    border-radius: 5px;
+    overflow-y: auto;
+    position: relative;
+    width:300px;
+    margin:10px
+}

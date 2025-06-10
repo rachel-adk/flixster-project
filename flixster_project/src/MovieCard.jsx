@@ -1,16 +1,21 @@
 import React from 'react'
-import './App.css'
+import './MovieCard.css'
 // import ModalDisplay from './ModalDisplay'
 
-const App = () => {
-  return (
-    <>
-      <div className='movieApp'>
-        <h1>Flixster</h1>
-        <MovieList data = {data}/>
-      </div>
-    </>
-  );
-}
+const MovieCard = ({title, movieImage, rating}) => {
+    return (
+        <>
+        <div className='MovieCard'>
+            <img src={movieImage} alt={title} />
+            <div className='movieInfo'>
+                <h3>{title}</h3>
+                <h4>Rating:{rating}</h4>
+            </div>
+        </div>
 
-export default App
+
+        </>
+    );
+};
+
+export default MovieCard;

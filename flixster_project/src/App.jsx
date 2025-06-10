@@ -1,37 +1,38 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './App.css'
 import MovieList from './MovieList'
-import data from './data'
+import SearchForm from './SearchForm'
+//import data from './data'
 
-const fetchData = async () => {
-  try {
-    const apiKey = import.meta.env.VITE_API_KEY;
-    const response = await fetch(`https://www.themoviedb.org/settings/api`);
-    if (!response.ok) {
-      throw new Error('Failed to fetch data for movie');
+
+
+
+function App() {
+  const [movie, setMovies] = useState([1])
+  const [movieData, setMovieData] = useState(null);
+
+  const fetchData = async () => {
+    const apiKey = import.meta.env.VITE_API_KEY
+    const response = await fetch(`https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}&language=en-US&page=1`)
+    const data = await response.json()
+    setMovieData(movieData)
+  };
+
+  useEffect(() => {
+    if (movie !== '') {
+      fetchData();
     }
-    const data = await response.json();
-    //fetchData(data);
-  } catch (error) {
-    console.error(error);
-  }
-};
+  }, [movie]);
 
-useEffect(() => {
-  if (movie) {
-    fetchData();
-  }
-}, [movie]);
-
-const App = () => {
+  const handleMovieChange = (newMovie) => {
+    setMovies(newMovie);
+  };
   return (
-    <>
-      <div className='movieApp'>
-        <h1>Flixster</h1>
-        <MovieList data = {data}/>
-      </div>
-    </>
-  );
-}
-
-export default App
+    <div className="App">
+      <h1>Flixster</h1>
+      <SearchForm onMovieChange={handleMovieChange}/>
+      <MovieList />
+    </div>
+  )
+  };
+export default App;
