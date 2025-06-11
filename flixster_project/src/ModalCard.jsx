@@ -1,6 +1,10 @@
 import React from "react";
 import './ModalCard.css'
 
+// const closeModal = () => {
+//   document.querySelector(".modal").style.display = "none";
+// };
+
 const ModalCard = ({movie, onClose}) => {
   return (
     <div className="modal" onClick={onClose}>
@@ -12,6 +16,8 @@ const ModalCard = ({movie, onClose}) => {
                 <p>Runtime: {movie.runtime} minutes</p>
                 <p>Overview: {movie.overview}</p>
                 <p>Genre: {movie.genres?.map(g=>g.name).join(",")}</p>
+                <button className="close" onClick={onClose}>Close</button>
+
         </div>
     </div>
   )
