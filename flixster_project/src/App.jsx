@@ -9,12 +9,12 @@ function App() {
 
   const handleMovieChange = (newQuery) => {
     setSearchQuery(newQuery)
-    //setPageNumber(1)
+
   }
 
   const handleClearSearch = () => {
     setSearchQuery('')
-    //setPageNumber(1)
+    
   }
 
   return (

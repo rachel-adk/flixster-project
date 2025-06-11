@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import './MovieList.css'
 import MovieCard from './MovieCard'
+import ModalCard from './ModalCard'
+
 //import SearchForm from './searchForm'
 
 
@@ -52,26 +54,30 @@ function MovieList ( {searchQuery}) {
     }catch(err){
       setError("Error loading movies");
     }
-
-    const modalDisplay = async(movieId) => {
-      const response =  await fetch(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}`)
-      const data = await response.json();
-      setSelectCard(data)
-
-    }
   }
+  const modalDisplay = async(movieId) => {
+    console.log(movieId)
+    const response =  await fetch(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}`)
+    const data = await response.json();
+    setSelectCard(data)
+
+  }
+
 
 
 
   if (isLoading) return <div>Loading...</div>
   if (error) return <p>{error}</p>
+  console.log(movies)
   return (
     <>
       <div className='MovieList'>
         {movies.map((movie, index) => <MovieCard key={index}
                                         title={movie.title}
                                         movieImage={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-                                        rating={movie.vote_average}/>
+                                        rating={movie.vote_average}
+                                        modalDisplay={modalDisplay}
+                                        movie_id={movie.id}/>
       )}
       </div>
         {!searchQuery && (
@@ -82,7 +88,7 @@ function MovieList ( {searchQuery}) {
       </div>
     )}
     {selectCard &&
-      <ModalDisplay movie = {selectCard}
+      <ModalCard movie = {selectCard}
                             onClose={() => setSelectCard(null)}/>}
   </>
 );

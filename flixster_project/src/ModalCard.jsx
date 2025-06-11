@@ -1,13 +1,13 @@
 import React from "react";
-import 'ModalDisplay.css'
+import './ModalCard.css'
 
-const ModalDisplay = ({movie, onClose}) => {
+const ModalCard = ({movie, onClose}) => {
   return (
     <div className="modal" onClick={onClose}>
         <div className="modalContent"
             onClick={e => e.stopPropagation()}>
                 <h1>{movie.title}</h1>
-                <img className="modalImage" src={movie.image} alt={movie.title}/>
+                <img className="modalImage" src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title}/>
                 <p>Release Date: {movie.release_date}</p>
                 <p>Runtime: {movie.runtime} minutes</p>
                 <p>Overview: {movie.overview}</p>
@@ -16,3 +16,4 @@ const ModalDisplay = ({movie, onClose}) => {
     </div>
   )
 };
+export default ModalCard;
