@@ -5,12 +5,12 @@ import MovieCard from './MovieCard'
 
 
 
-function MovieList () {
+function MovieList ( {searchQuery}) {
   const [movies, setMovies] = useState([])
   const [pageNumber, setPageNumber] = useState(1)
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState(null)
-  const [searchQuery, setSearchQuery] = useState('')
+  
 
 
   const apiKey = import.meta.env.VITE_API_KEY;

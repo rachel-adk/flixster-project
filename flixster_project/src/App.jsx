@@ -1,25 +1,30 @@
 import React, { useEffect, useState } from 'react'
 import './App.css'
-import MovieList from './MovieList'
 import SearchForm from './SearchForm'
+import MovieList from './MovieList'
+
 //import data from './data'
-
-const handleMovieChange = (query) => {
-  setSearchQuery(query)
-  //setPageNumber(1)
-}
-
-const handleClearSearch = () => {
-  setSearchQuery('')
-  //setPageNumber(1)
-}
-
 function App() {
+  const [searchQuery, setSearchQuery] = useState('')
+
+  const handleMovieChange = (newQuery) => {
+    setSearchQuery(newQuery)
+    //setPageNumber(1)
+  }
+
+  const handleClearSearch = () => {
+    setSearchQuery('')
+    //setPageNumber(1)
+  }
+
   return (
     <div className="App">
       <h1>Flixster</h1>
-      <SearchForm onMovieChange={handleMovieChange}/>
-      <MovieList />
+      <SearchForm
+        onMovieChange={handleMovieChange}
+        onClearSearch={handleClearSearch}
+      />
+      <MovieList searchQuery={searchQuery}/>
     </div>
   )
   };
