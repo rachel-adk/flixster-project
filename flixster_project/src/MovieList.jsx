@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import './MovieList.css'
 import MovieCard from './MovieCard'
 import ModalCard from './ModalCard'
+import SortMovies from './SortMovies';
 
 //import SearchForm from './searchForm'
 
@@ -27,7 +28,7 @@ function MovieList ( {searchQuery}) {
       const response = await fetch(endpoint)
       const data = await response.json();
       if (response.ok) {
-        setMovies(data.results);
+        setMovies(data.results.filter(({poster_path}) => poster_path != null));
         setError(null);
       }else {
         setError(data.status_message) || "Error fetching data";
@@ -56,7 +57,6 @@ function MovieList ( {searchQuery}) {
     }
   }
   const modalDisplay = async(movieId) => {
-    console.log(movieId)
     const response =  await fetch(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}`)
     const data = await response.json();
     setSelectCard(data)
@@ -69,8 +69,35 @@ function MovieList ( {searchQuery}) {
   if (isLoading) return <div>Loading...</div>
   if (error) return <p>{error}</p>
   console.log(movies)
+//handle sort
+
+const handleSort = async(value) =>{
+  console.log("sort here")
+  const sortedMovies = [...movies]
+  //sort stuff using sortedMovies
+  if (value === "title"){
+    sortedMovies.sort((a,b) => a.title.toLowerCase().localeCompare(b.title.toLowerCase()));
+  }
+  if (value === "vote_average"){
+    sortedMovies.sort((a,b) => b.vote_average - a.vote_average);
+  }
+  if (value === "release_date"){
+    sortedMovies.sort((a,b) => b.release_date.localeCompare(a.release_date));
+  }
+  setMovies(sortedMovies);
+
+}
+
+
+
+
   return (
     <>
+
+    <SortMovies onSort={handleSort}/>
+
+
+
       <div className='MovieList'>
         {movies.map((movie, index) => <MovieCard key={index}
                                         title={movie.title}
