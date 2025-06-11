@@ -5,8 +5,8 @@ import MovieCard from './MovieCard'
 
 
 function MovieList () {
-  const [movies, setMovies] = useState([1])
-  const [pageNumber, setPageNumber] = useState([1])
+  const [movies, setMovies] = useState([])
+  const [pageNumber, setPageNumber] = useState(1)
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState(null)
 
@@ -36,10 +36,13 @@ function MovieList () {
 
   const loadMore = async () => {
     try{
-      const response = await fetch(`https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}&language=en-US&page=1`)
+      const nextPage = pageNumber + 1
+      console.log(nextPage)
+      const response = await fetch(`https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}&language=en-US&page=${nextPage}`)
+      setPageNumber(nextPage)
       const data = await response.json();
       setMovies([...movies, ...data.results])
-      setPageNumber([pageNumber + 1])
+
     }catch(err){
       setError("Error loading movies");
     }

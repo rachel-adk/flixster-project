@@ -1,7 +1,29 @@
 .MovieCard{
     border-radius: 5px;
-    overflow-y: auto;
     position: relative;
-    width:300px;
-    margin:10px
+    margin: 10px;
+    border: 2px solid black;
+    display:flex;
+    flex-direction: column;
 }
+
+.movieImage img {
+    height: 350px;
+    border-radius: 5px;
+    border: 2px solid black;
+
+}
+
+.movieInfo{
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    flex-flow: column wrap;
+    max-width: 100%;
+    word-wrap: break-word;
+}
+/*
+.movieInfo h3{
+    max-width: 100%;
+    word-wrap: break-word;
+} */
