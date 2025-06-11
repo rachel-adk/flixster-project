@@ -10,7 +10,8 @@ function MovieList ( {searchQuery}) {
   const [pageNumber, setPageNumber] = useState(1)
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState(null)
-  
+  const [selectCard, setSelectCard] = useState(null)
+
 
 
   const apiKey = import.meta.env.VITE_API_KEY;
@@ -51,6 +52,13 @@ function MovieList ( {searchQuery}) {
     }catch(err){
       setError("Error loading movies");
     }
+
+    const modalDisplay = async(movieId) => {
+      const response =  await fetch(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}`)
+      const data = await response.json();
+      setSelectCard(data)
+
+    }
   }
 
 
@@ -59,8 +67,6 @@ function MovieList ( {searchQuery}) {
   if (error) return <p>{error}</p>
   return (
     <>
-      {/* <SearchForm onMovieChange={handleMovieChange}
-                  onClearSearch={handleClearSearch} /> */}
       <div className='MovieList'>
         {movies.map((movie, index) => <MovieCard key={index}
                                         title={movie.title}
@@ -75,6 +81,9 @@ function MovieList ( {searchQuery}) {
           </button>
       </div>
     )}
+    {selectCard &&
+      <ModalDisplay movie = {selectCard}
+                            onClose={() => setSelectCard(null)}/>}
   </>
 );
 }

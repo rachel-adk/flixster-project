@@ -42,3 +42,7 @@
   color: #888;
 }
 
+.footer {
+  display:flex;
+  text-align:start;
+}

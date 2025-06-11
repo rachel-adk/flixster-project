@@ -19,12 +19,19 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Flixster</h1>
+      <header className="App_header">
+        <h1>Flixster</h1>
+      </header>
       <SearchForm
         onMovieChange={handleMovieChange}
         onClearSearch={handleClearSearch}
       />
       <MovieList searchQuery={searchQuery}/>
+
+      <footer className="App_footer">
+        <p>Copyright 2025</p>
+      </footer>
+
     </div>
   )
   };
