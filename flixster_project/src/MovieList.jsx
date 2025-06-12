@@ -4,8 +4,6 @@ import MovieCard from './MovieCard'
 import ModalCard from './ModalCard'
 import SortMovies from './SortMovies';
 
-//import SearchForm from './searchForm'
-
 
 
 function MovieList ( {searchQuery}) {
@@ -114,12 +112,11 @@ const handleSort = async(value) =>{
           </button>
       </div>
     )}
-    {selectCard &&
+    {selectCard && (
       <ModalCard movie = {selectCard}
-                            onClose={() => setSelectCard(null)}/>}
-  </>
-);
-}
+                            onClose={() => setSelectCard(null)}/>)}</>
+
+  )}
 
 
 export default MovieList;

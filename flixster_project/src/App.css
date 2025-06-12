@@ -42,6 +42,11 @@
   color: #888;
 }
 
+.blurred{
+  filter: blur(5px);
+
+}
+
 .footer {
   display:flex;
   text-align:start;

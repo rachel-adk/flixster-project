@@ -20,6 +20,7 @@ const ModalCard = ({movie, onClose}) => {
 
         </div>
     </div>
-  )
+    )
 };
+
 export default ModalCard;

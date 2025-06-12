@@ -6,6 +6,7 @@ import MovieList from './MovieList'
 //import data from './data'
 function App() {
   const [searchQuery, setSearchQuery] = useState('')
+  
 
   const handleMovieChange = (newQuery) => {
     setSearchQuery(newQuery)
@@ -14,7 +15,7 @@ function App() {
 
   const handleClearSearch = () => {
     setSearchQuery('')
-    
+
   }
 
   return (
@@ -26,12 +27,11 @@ function App() {
         onMovieChange={handleMovieChange}
         onClearSearch={handleClearSearch}
       />
-      <MovieList searchQuery={searchQuery}/>
-
+      <MovieList searchQuery={searchQuery}
+      />
       <footer className="App_footer">
         <p>Copyright 2025</p>
       </footer>
-
     </div>
   )
   };
