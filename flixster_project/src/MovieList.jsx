@@ -25,6 +25,12 @@ function MovieList ( {searchQuery}) {
         : `https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}&language=en-US&page=1`
       const response = await fetch(endpoint)
       const data = await response.json();
+
+
+
+
+
+
       if (response.ok) {
         setMovies(data.results.filter(({poster_path}) => poster_path != null));
         setError(null);
@@ -55,9 +61,11 @@ function MovieList ( {searchQuery}) {
     }
   }
   const modalDisplay = async(movieId) => {
-    const response =  await fetch(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}`)
-    const data = await response.json();
-    setSelectCard(data)
+    const [movieResponse, videoResponse] =  await Promise.all ([fetch(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}`), fetch(`https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=${apiKey}`)])
+    const movieData = await movieResponse.json();
+    const videoData = await videoResponse.json();
+    const MovieTrailer = videoData.results.find((video) => video.type === "Trailer" && video.site === "YouTube");
+    setSelectCard({...movieData, trailerKey: MovieTrailer ? MovieTrailer.key : null})
 
   }
 

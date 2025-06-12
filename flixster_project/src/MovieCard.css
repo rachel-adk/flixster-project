@@ -1,10 +1,11 @@
 .MovieCard{
-    border-radius: 5px;
-    position: relative;
-    margin: 10px;
+    border-radius: 8px;
     border: 2px solid black;
     display:flex;
     flex-direction: column;
+    flex: 0 0 16%;
+    width:100%;
+    overflow: hidden;
 }
 
 .movieImage img {
@@ -22,4 +23,13 @@
     flex-flow: column wrap;
     max-width: 100%;
     word-wrap: break-word;
+    margin:2px;
+}
+
+.movieIcons{
+    display: flex;
+    flex-direction: row;
+    gap:180px;
+    padding:15px;
+
 }

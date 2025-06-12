@@ -1,0 +1,13 @@
+.sidebar {
+    position: fixed; /* or absolute if you prefer */
+    top: 0;
+    left: 0;
+    height: 100vh;       /* full screen height */
+    width: 250px;        /* fixed width */
+    background-color: #222;
+    color: white;
+    padding: 1rem;
+    overflow-y: auto;    /* scroll if content overflows */
+    box-shadow: 2px 0 5px rgba(0,0,0,0.2);
+    z-index: 999;        /* stay on top of other elements */
+  }
