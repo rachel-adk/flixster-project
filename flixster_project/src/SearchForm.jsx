@@ -35,7 +35,7 @@ function SearchForm({ onMovieChange, onClearSearch }) {
         />
         <button className="search-button" type="submit">Search</button>
         {searchQuery && (
-            <button className="clear-button" onClick={handleClear}>Now Playing</button>
+            <button className="clear-button" onClick={handleClear}>Clear</button>
         )}
         </form>
     )
