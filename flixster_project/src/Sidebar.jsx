@@ -1,24 +1,29 @@
 import React from "react";
 import './searchForm.css'
 
-const Sidebar = ({favoriteMovies = [], watchedMovies = []}) => {
+const Sidebar = ({likedMovies = [], watchedMovies = [], setPage}) => {
+    // create state to change page
     console.log("watchedMovies:", watchedMovies);
+    console.log("likedMovies:", likedMovies);
     return(
         <div className="sidebar">
             <h2>Liked Movies(❤️)</h2>
-            <ul>
-                {/* {favoriteMovies && favoriteMovies.map((movie) => (
+            {/* <ul>
+                {likedMovies && likedMovies.map((movie) => (
                 <li key={movie.id}>{movie.title}</li>
-                ))} */}
-            </ul>
+                ))}
+            </ul> */}
 
             <h2>Watched Movies(✅)</h2>
-            <ul>
-                {/* {watchedMovies && watchedMovies.map((movie) => (
+            {/* <ul>
+                {watchedMovies && watchedMovies.map((movie) => (
                 <li key={movie.id}>{movie.title}</li>
-                ))} */}
-            </ul>
-            </div>
+                ))}
+            </ul> */}
+            <button onClick={() => setPage('watched')}>Watched</button>
+            <button onClick={() => setPage('liked')}>Liked</button>
+            {/* setPage('clicked value') */}
+        </div>
         )
 }
 export default Sidebar;

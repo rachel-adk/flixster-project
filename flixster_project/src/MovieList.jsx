@@ -6,7 +6,7 @@ import SortMovies from './SortMovies';
 
 
 
-function MovieList ( {searchQuery}) {
+function MovieList ( {searchQuery, likedMovies, watchedMovies, toggleLiked, toggleWatched}) {
   const [movies, setMovies] = useState([])
   const [pageNumber, setPageNumber] = useState(1)
   const [isLoading, setIsLoading] = useState(true)
@@ -110,7 +110,11 @@ const handleSort = async(value) =>{
                                         movieImage={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
                                         rating={movie.vote_average}
                                         modalDisplay={modalDisplay}
-                                        movie_id={movie.id}/>
+                                        movie_id={movie.id}
+                                        isLiked={likedMovies.filter((m) => m.id === movie.id).length>0}
+                                        hasWatched={watchedMovies.filter((m) => m.id === movie.id).length>0}
+                                        onToggleLiked={() => toggleLiked(movie)}
+                                        onToggleWatched={() => toggleWatched(movie)}/>
       )}
       </div>
         {!searchQuery && (

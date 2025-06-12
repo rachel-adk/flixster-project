@@ -3,12 +3,13 @@ import "./App.css";
 import SearchForm from "./SearchForm";
 import MovieList from "./MovieList";
 import Sidebar from "./Sidebar";
-
+import WatchedList from "./WatchedList";
 //import data from './data'
 function App() {
   const [searchQuery, setSearchQuery] = useState("");
-  const [isLiked, setIsLiked] = useState(false);
-  const [hasWatched, setHasWatched] = useState("👀");
+  const [likedMovies, setLikedMovies] = useState([]);
+  const [watchedMovies, setWatchedMovies] = useState([]);
+  const [page, setPage] = useState("now_playing");
   const handleMovieChange = (newQuery) => {
     setSearchQuery(newQuery);
   };
@@ -17,16 +18,16 @@ function App() {
     setSearchQuery("");
   };
 
-  const toggleWatched = (event) => {
-    setHasWatched((prev) =>
+  const toggleWatched = (movie) => {
+    setWatchedMovies((prev) =>
       prev.find((m) => m.id === movie.id)
         ? prev.filter((m) => m.id !== movie.id)
         : [...prev, movie]
     );
   };
 
-  const toggleLike = (event) => {
-    setIsLiked((prev) =>
+  const toggleLiked = (movie) => {
+    setLikedMovies((prev) =>
       prev.find((m) => m.id === movie.id)
         ? prev.filter((m) => m.id !== movie.id)
         : [...prev, movie]
@@ -44,7 +45,28 @@ function App() {
       onMovieChange(searchQuery.trim());
     }
   };
-
+  const renderContent = () => {
+    switch (page) {
+      case 'now_playing':
+        return  <MovieList
+            searchQuery={searchQuery}
+            likedMovies={likedMovies}
+            watchedMovies={watchedMovies}
+            toggleLiked={toggleLiked}
+            toggleWatched={toggleWatched} />
+      case 'watched':
+        return <WatchedList watchedMovies={watchedMovies}/>
+      case 'favorited':
+        return <FavoriteList/>
+      default:
+        return  <MovieList
+        searchQuery={searchQuery}
+        likedMovies={likedMovies}
+        watchedMovies={watchedMovies}
+        toggleLiked={toggleLiked}
+        toggleWatched={toggleWatched} />
+    }
+  }
   return (
     <div className="App">
       <header className="App_header">
@@ -55,13 +77,14 @@ function App() {
         <button onClick={handleSearchResults}>
           <h4>Search Results</h4>
         </button>
+        {/* Favorite movies page && Watched Page */}
       </header>
       <SearchForm
         onMovieChange={handleMovieChange}
         onClearSearch={handleClearSearch}
       />
-      <MovieList searchQuery={searchQuery} />
-      <Sidebar likedMovies={isLiked} watchedMovies={hasWatched} />
+      { renderContent() }
+      <Sidebar likedMovies={likedMovies} watchedMovies={watchedMovies} setPage={(val) => setPage(val)} />
 
       <footer className="App_footer">
         <p>Copyright 2025</p>

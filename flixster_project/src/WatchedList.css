@@ -1,0 +1,10 @@
+.WatchedList{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap:15px;
+    width:100%;
+    height:100%;
+
+}
