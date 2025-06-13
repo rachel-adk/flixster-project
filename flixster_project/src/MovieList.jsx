@@ -65,13 +65,12 @@ function MovieList ( {searchQuery, likedMovies, watchedMovies, toggleLiked, togg
 
   if (isLoading) return <div>Loading...</div>
   if (error) return <p>{error}</p>
-  console.log(movies)
+  
 //handle sort
 
 const handleSort = async(value) =>{
-  console.log("sort here")
   const sortedMovies = [...movies]
-  //sort stuff using sortedMovies
+  //sort movies using sortedMovies
   if (value === "title"){
     sortedMovies.sort((a,b) => a.title.toLowerCase().localeCompare(b.title.toLowerCase()));
   }
