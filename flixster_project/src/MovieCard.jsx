@@ -13,9 +13,7 @@ const MovieCard = ({
   onToggleWatched,
 }) => {
   const ratingFormat = rating.toFixed(1);
-  // const [isLiked, setIsLiked] = useState(false);
-  // const [hasWatched, setHasWatched] = useState('👀');
-
+  
   const clickLike = (event) => {
     event.stopPropagation();
     onToggleLiked();
