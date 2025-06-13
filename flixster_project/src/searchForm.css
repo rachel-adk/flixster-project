@@ -3,7 +3,7 @@
     display: flex;
     justify-content: center;
     margin-bottom: 40px;
-    padding-bottom: 20px;
+    padding: 20px;
     gap: 10px;
   }
 
@@ -24,13 +24,14 @@
 
   .search-button {
     padding: 10px 15px;
-    background-color: #3498db;
-    color: white;
+    background-color: white;
+    color: black;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     box-shadow: 0 2px 4px rgba(0,0,0,0.2);
     transition: background-color 0.2s, box-shadow 0.2s;
+
   }
 
   .search-button:hover {
@@ -42,4 +43,3 @@
     background-color: #2471a3;
     box-shadow: 0 2px 4px rgba(0,0,0,0.2);
   }
-

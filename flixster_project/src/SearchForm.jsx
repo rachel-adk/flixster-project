@@ -30,13 +30,11 @@ function SearchForm({ onMovieChange, onClearSearch }) {
             value={searchQuery}
             type="text"
             name="movie"
-            placeholder="Enter movie name"
+            placeholder="Search for a movie..."
             onChange={handleInputChange}
         />
         <button className="search-button" type="submit">Search</button>
-        {searchQuery && (
-            <button className="clear-button" onClick={handleClear}>Clear</button>
-        )}
+        <button className="clear-button" onClick={handleClear}>Clear</button>
         </form>
     )
 }

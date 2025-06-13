@@ -4,7 +4,7 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
-  background-color: rgb(46, 15, 118);
+  background-color: rgb(34, 8, 94);
 }
 
 .logo {
@@ -50,7 +50,8 @@
 
 .footer {
   display:flex;
-  text-align:start;
+  align-items: flex-start;
+  color: white;
 }
 
 h1, h2{

@@ -1,13 +1,45 @@
 .sidebar {
-    position: fixed; /* or absolute if you prefer */
+    position: fixed;
     top: 0;
     left: 0;
-    height: 50vh;       /* full screen height */
-    width: 50px;        /* fixed width */
-    background-color: #222;
+    width: 60px; /* slightly wider for icon/button visibility */
+    /* background-color:  rgb(46, 15, 118); */
     color: white;
-    padding: 1rem;
-    overflow-y: auto;    /* scroll if content overflows */
-    box-shadow: 2px 0 5px rgba(0,0,0,0.2);
-    z-index: 999;        /* stay on top of other elements */
+    padding: 0.5rem;
+    box-shadow: 2px 0 5px rgba(171, 196, 202, 0.2);
+    z-index: 9999;
+    margin: 0;
+    /* Override any flex positioning from parent elements */
+    transform: none;
+    display: block;
   }
+
+  .sidebar_button {
+    background: white;
+    color: white;
+    font-size: 1.5rem;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 0.5rem;
+  }
+
+.sidebarMenu {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.sidebarMenu button {
+  background-color: #c4d7d9;
+  color: rgb(14, 13, 13);
+  border: none;
+  padding: 0.5rem;
+  text-align: left;
+  cursor: pointer;
+  width: 100px;
+
+}
+
+.sidebarMenu button:hover {
+  background-color: rgb(17, 168, 182);
+}

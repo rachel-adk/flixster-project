@@ -1,5 +1,5 @@
-import React from "react";
-import './searchForm.css'
+import React, { useState } from "react";
+import './Sidebar.css'
 
 const Sidebar = ({setPage}) => {
     // create state to change page
@@ -10,10 +10,10 @@ const Sidebar = ({setPage}) => {
                 🟰
             </button>
         {isOpen && (
-        <div className="sidebar">
-            <button onClick={() => { setPage('home'); setIsOpen(false); }}>Home🏠</button>
+        <div className="sidebarMenu">
+            <button onClick={() => { setPage('home'); setIsOpen(false); }}>🏠Home</button>
             <button onClick={() => { setPage('watched'); setIsOpen(false); }}>✅Watched</button>
-            <button onClick={() => { setPage('liked'), setIsOpen(false); }}>❤️Liked</button>
+            <button onClick={() => { setPage('liked'); setIsOpen(false); }}>❤️Liked</button>
         </div>
         )}
         </div>

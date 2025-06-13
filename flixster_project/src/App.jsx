@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./App.css";
 import SearchForm from "./SearchForm";
 import MovieList from "./MovieList";
@@ -11,6 +11,7 @@ function App() {
   const [likedMovies, setLikedMovies] = useState([]);
   const [watchedMovies, setWatchedMovies] = useState([]);
   const [page, setPage] = useState("home");
+
   const handleMovieChange = (newQuery) => {
     setSearchQuery(newQuery);
   };
@@ -35,64 +36,48 @@ function App() {
     );
   };
 
-  const handleSearchResults = (event) => {
-    event.preventDefault();
-    if (searchQuery.trim()) {
-      onMovieChange(searchQuery.trim());
+  const renderContent = () => {
+    switch (page) {
+      case "watched":
+        return <WatchedList watchedMovies={watchedMovies} />;
+      case "favorited":
+        return <LikedList likedMovies={likedMovies} />;
+      default:
+        return (
+          <>
+            <SearchForm
+              onMovieChange={handleMovieChange}
+              onClearSearch={handleClearSearch}
+            />
+            <MovieList
+              searchQuery={searchQuery}
+              likedMovies={likedMovies}
+              watchedMovies={watchedMovies}
+              toggleLiked={toggleLiked}
+              toggleWatched={toggleWatched}
+            />
+          </>
+        );
     }
   };
 
-  const renderContent = () => {
-    switch (page) {
-      case 'now_playing':
-        return  <MovieList
-            searchQuery={searchQuery}
-            likedMovies={likedMovies}
-            watchedMovies={watchedMovies}
-            toggleLiked={toggleLiked}
-            toggleWatched={toggleWatched} />
-      case 'watched':
-        return <WatchedList watchedMovies={watchedMovies}/>
-      case 'favorited':
-        return <FavoriteList/>
-      default:
-        return  <MovieList
-        searchQuery={searchQuery}
-        likedMovies={likedMovies}
-        watchedMovies={watchedMovies}
-        toggleLiked={toggleLiked}
-        toggleWatched={toggleWatched} />
-    }
-  }
   return (
     <div className="App">
       <header className="App_header">
-        <Sidebar setPage={setPage} />
         <h1>Flixster</h1>
         <h2>Now Playing</h2>
+        <Sidebar setPage={setPage} />
       </header>
-      <SearchForm
-        onMovieChange={handleMovieChange}
-        onClearSearch={handleClearSearch}
-      />
-      <Sidebar setPage={setPage}/>
-        {page === 'liked' ? (
-          <LikedList likedMovies={likedMovies} />
-        ) : page === 'watched' ? (
-          <WatchedList watchedMovies={watchedMovies} />
-        ) : (
-          <MovieList
-            searchQuery={searchQuery}
-            likedMovies={likedMovies}
-            watchedMovies={watchedMovies}
-            toggleLiked={toggleLiked}
-            toggleWatched={toggleWatched} />
-          )}
 
-      <footer className="App_footer">
+      <main className="App_main">
+        {renderContent()}
+      </main>
+
+      <footer className="footer">
         <p>Copyright 2025</p>
       </footer>
     </div>
   );
 }
+
 export default App;

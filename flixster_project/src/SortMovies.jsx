@@ -10,8 +10,8 @@ const SortMovies = ({onSort}) => {
         <select onChange={HandleSortChange}>
             <option value=''>Sort By</option>
             <option value='title'> Title</option>
-            <option value='vote_average'> Rating</option>
-            <option value='release_date'> Date</option>
+            <option value='vote_average'> Voting Average</option>
+            <option value='release_date'> Date Released</option>
         </select>
 
     )
