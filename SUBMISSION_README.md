@@ -106,7 +106,7 @@ Deployed Application (**required**): [Flixster Deployed Site] (https://flixster-
 
 * Did the topics discussed in your labs prepare you to complete the assignment? Be specific, which features in your weekly assignment did you feel unprepared to complete?
 
-Yes, they did help me. I used it to understand how to implement certian features and this helped me understand how to work on certain milestones. Implementing the sidebar(stretch feature) is something I initally felt unprepared to complete, but I was able to implement it in the end
+Yes, they did help me. I used it to understand how to implement certain features and this helped me understand how to work on some milestones. Implementing the sidebar(stretch feature) is something I initally felt unprepared to complete, but I was able to implement it in the end
 
 * If you had more time, what would you have done differently? Would you have added additional features? Changed the way your project responded to a particular event, etc.
   
