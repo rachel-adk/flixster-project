@@ -1,11 +1,13 @@
 .MovieCard{
     border-radius: 8px;
-    border: 2px solid black;
+    border: 3px solid rgb(189, 207, 239);
     display:flex;
     flex-direction: column;
     flex: 0 0 16%;
     width:100%;
     overflow: hidden;
+    background-blend-mode: lighten;
+    background-color: #7272daaa;
 
 }
 
@@ -25,7 +27,7 @@
     max-width: 100%;
     word-wrap: break-word;
     margin:2px;
-    font-style: normal white;
+   color:white;
 }
 
 .movieIcons{

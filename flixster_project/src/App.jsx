@@ -4,12 +4,13 @@ import SearchForm from "./SearchForm";
 import MovieList from "./MovieList";
 import Sidebar from "./Sidebar";
 import WatchedList from "./WatchedList";
-//import data from './data'
+import LikedList from "./LikedList";
+
 function App() {
   const [searchQuery, setSearchQuery] = useState("");
   const [likedMovies, setLikedMovies] = useState([]);
   const [watchedMovies, setWatchedMovies] = useState([]);
-  const [page, setPage] = useState("now_playing");
+  const [page, setPage] = useState("home");
   const handleMovieChange = (newQuery) => {
     setSearchQuery(newQuery);
   };
@@ -34,17 +35,13 @@ function App() {
     );
   };
 
-  const handleNowPlaying = () => {
-    setSearchQuery("");
-    onClearSearch();
-  };
-
   const handleSearchResults = (event) => {
     event.preventDefault();
     if (searchQuery.trim()) {
       onMovieChange(searchQuery.trim());
     }
   };
+
   const renderContent = () => {
     switch (page) {
       case 'now_playing':
@@ -70,21 +67,27 @@ function App() {
   return (
     <div className="App">
       <header className="App_header">
+        <Sidebar setPage={setPage} />
         <h1>Flixster</h1>
-        <button onClick={handleNowPlaying}>
-          <h4>Now Playing</h4>
-        </button>
-        <button onClick={handleSearchResults}>
-          <h4>Search Results</h4>
-        </button>
-        {/* Favorite movies page && Watched Page */}
+        <h2>Now Playing</h2>
       </header>
       <SearchForm
         onMovieChange={handleMovieChange}
         onClearSearch={handleClearSearch}
       />
-      { renderContent() }
-      <Sidebar likedMovies={likedMovies} watchedMovies={watchedMovies} setPage={(val) => setPage(val)} />
+      <Sidebar setPage={setPage}/>
+        {page === 'liked' ? (
+          <LikedList likedMovies={likedMovies} />
+        ) : page === 'watched' ? (
+          <WatchedList watchedMovies={watchedMovies} />
+        ) : (
+          <MovieList
+            searchQuery={searchQuery}
+            likedMovies={likedMovies}
+            watchedMovies={watchedMovies}
+            toggleLiked={toggleLiked}
+            toggleWatched={toggleWatched} />
+          )}
 
       <footer className="App_footer">
         <p>Copyright 2025</p>

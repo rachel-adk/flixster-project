@@ -6,15 +6,15 @@ const MovieCard = ({title, movieImage, rating, modalDisplay, movie_id, isLiked, 
     // const [isLiked, setIsLiked] = useState(false);
     // const [hasWatched, setHasWatched] = useState('👀');
 
-    // const clickLike = (event) => {
-    //     event.stopPropagation()
-    //     setIsLiked((prev) => !prev);
-    // }
+    const clickLike = (event) => {
+        event.stopPropagation()
+        onToggleLiked();
+    }
 
-    // const clickWatched = (event) => {
-    //     event.stopPropagation();
-    //     setHasWatched((prev) => (prev === '👀' ? '✅' : '👀'))
-    // }
+    const clickWatched = (event) => {
+        event.stopPropagation();
+        onToggleWatched();
+    }
 
     return (
         <div className='MovieCard' onClick={() => modalDisplay(movie_id)}>
@@ -25,16 +25,11 @@ const MovieCard = ({title, movieImage, rating, modalDisplay, movie_id, isLiked, 
                 <h3>{title}</h3>
                 <h4>Rating: {ratingFormat}</h4>
                 <div className='movieIcons'>
-                    <p className='likeButton' onClick={(e) => {
-                        e.stopPropagation();
-                        onToggleLiked();
-                    }}>
-                        {isLiked ? '❤️' : '🤍'}
-                    </p>
-                    <p className='watchedButton' onClick={(e) => {
-                        e.stopPropagation();
-                        onToggleWatched();
-                    }}>
+                    <p className='likeButton' onClick={clickLike}>
+                         {isLiked ? '❤️' : '🤍'}</p>
+
+
+                    <p className='watchedButton' onClick={clickWatched}>
                         {hasWatched ? '✅' : '👀'}</p>
                 </div>
             </div>
