@@ -1,80 +1,73 @@
-.MovieCard{
-    border-radius: 8px;
-    border: 3px solid rgb(189, 207, 239);
-    display:flex;
-    flex-direction: column;
-    flex: 1 1 250px;
-    max-width: 300px;
-    min-width: 200px;
-    margin: 10px;
-    overflow: hidden;
-    background-blend-mode: darken;
-    background-color: rgb(73, 73, 182);
-    transition: all 0.3s ease;
-    cursor: pointer;
+.MovieCard {
+  border-radius: 8px;
+  border: 3px solid rgb(189, 207, 239);
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 250px;
+  max-width: 300px;
+  min-width: 200px;
+  margin: 10px;
+  overflow: hidden;
+  background-blend-mode: darken;
+  background-color: rgb(73, 73, 182);
+  transition: all 0.3s ease;
+  cursor: pointer;
 }
-
 
 .MovieCard:hover {
-    background-color: rgb(81, 81, 205);
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  background-color: rgb(81, 81, 205);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
-
 .MovieCard:active {
-    background-color: rgb(76, 76, 170);
-    transform: translateY(0);
-    box-shadow: 0 10px 10px 10px rgba(0, 0, 0, 1);
+  background-color: rgb(76, 76, 170);
+  transform: translateY(0);
+  box-shadow: 0 10px 10px 10px rgba(0, 0, 0, 1);
 }
 
 .moviecard-title {
-    font-size: 20px;
-    font-weight: 800;
+  font-size: 20px;
+  font-weight: 800;
 }
 .movieIcons p.likeButton:hover,
 .movieIcons p.watchedButton:hover {
-    background-color: rgba(99, 223, 232, 0.5);
-    border-radius: 50%;
+  background-color: rgba(99, 223, 232, 0.5);
+  border-radius: 50%;
 }
 
 .movieIcons p.likeButton:active,
 .movieIcons p.watchedButton:active {
-    background-color: rgb(17, 168, 182);
-    transform: scale(1.2);
+  background-color: rgb(17, 168, 182);
+  transform: scale(1.2);
 }
-
-
-
 
 .movieImage img {
-    display:flex;
-    height: 350px;
-    width:300px;
-    border-radius: 5px;
-    border: 2px solid rgb(7, 51, 56);
-    align-items: center;
-
+  display: flex;
+  height: 350px;
+  width: 300px;
+  border-radius: 5px;
+  border: 2px solid rgb(7, 51, 56);
+  align-items: center;
 }
 
-.movieInfo{
-    width: 250px;
-    display: flex;
-    flex-direction: column;
-    flex-flow: column wrap;
-    max-width: 100%;
-    word-wrap: break-word;
-    margin:2px;
-    color:#FFFFFF;
-    justify-content: center;
-    align-items: center;
+.movieInfo {
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  flex-flow: column wrap;
+  max-width: 100%;
+  word-wrap: break-word;
+  margin: 2px;
+  color: #ffffff;
+  justify-content: center;
+  align-items: center;
 }
 
-.movieIcons{
-    display: flex;
-    flex-direction: row;
-    gap:170px;
-    padding:10px;
-    font-size: 20px;
-
+.movieIcons {
+  display: flex;
+  flex-direction: row;
+  gap: 215px;
+  font-size: 20px;
+  cursor: pointer;
 }

@@ -40,31 +40,46 @@ function App() {
     );
   };
 
-  const modalDisplay = async(movieId) => {
-    const [movieResponse, videoResponse] =  await Promise.all ([fetch(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}`), fetch(`https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=${apiKey}`)])
+  const modalDisplay = async (movieId) => {
+    const [movieResponse, videoResponse] = await Promise.all([
+      fetch(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}`),
+      fetch(
+        `https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=${apiKey}`
+      ),
+    ]);
     const movieData = await movieResponse.json();
     const videoData = await videoResponse.json();
-    const MovieTrailer = videoData.results.find((video) => video.type === "Trailer" && video.site === "YouTube");
-    setSelectCard({...movieData, trailerKey: MovieTrailer ? MovieTrailer.key : null})
-  }
+    const MovieTrailer = videoData.results.find(
+      (video) => video.type === "Trailer" && video.site === "YouTube"
+    );
+    setSelectCard({
+      ...movieData,
+      trailerKey: MovieTrailer ? MovieTrailer.key : null,
+    });
+  };
 
   const renderContent = () => {
     switch (page) {
       case "watched":
-        return <WatchedList
-                  watchedMovies={watchedMovies}
-                  likedMovies={likedMovies}
-                  toggleLiked={toggleLiked}
-                  toggleWatched={toggleWatched}
-                  modalDisplay={modalDisplay}
-                 />;
+        return (
+          <WatchedList
+            watchedMovies={watchedMovies}
+            likedMovies={likedMovies}
+            toggleLiked={toggleLiked}
+            toggleWatched={toggleWatched}
+            modalDisplay={modalDisplay}
+          />
+        );
       case "liked":
-        return <LikedList
-                 likedMovies={likedMovies}
-                 watchedMovies={watchedMovies}
-                 toggleLiked={toggleLiked}
-                 toggleWatched={toggleWatched}
-                 modalDisplay={modalDisplay}/>;
+        return (
+          <LikedList
+            likedMovies={likedMovies}
+            watchedMovies={watchedMovies}
+            toggleLiked={toggleLiked}
+            toggleWatched={toggleWatched}
+            modalDisplay={modalDisplay}
+          />
+        );
       default:
         return (
           <>
@@ -85,31 +100,29 @@ function App() {
     }
   };
 
-
-
   return (
     <div className="App">
       <header className="App_header">
         <div className="banner">
-          <h1>Flixster🎞️</h1>
+          <h1>Flixster 🎞️</h1>
           <Sidebar setPage={setPage} />
         </div>
 
         <h2>
-            {searchQuery ? `Search Results for "${searchQuery}"` :
-            page === 'home' ? 'Now Playing' :
-            page === 'liked' ? 'Favorites' :
-            'Watched Movies'}
+          {searchQuery
+            ? `Search Results for "${searchQuery}"`
+            : page === "home"
+            ? "Now Playing"
+            : page === "liked"
+            ? "Favorites"
+            : "Watched Movies"}
         </h2>
       </header>
 
       <main className="App_main">
         {renderContent()}
         {selectCard && (
-          <ModalCard
-            movie={selectCard}
-            onClose={() => setSelectCard(null)}
-          />
+          <ModalCard movie={selectCard} onClose={() => setSelectCard(null)} />
         )}
       </main>
 

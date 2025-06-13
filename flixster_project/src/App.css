@@ -23,7 +23,6 @@
   margin: 0;
 }
 
-
 .banner {
   background-color: #6060c0;
   width: 100%;
@@ -49,21 +48,21 @@
   margin-left: auto;
 }
 
-.blurred{
+.blurred {
   filter: blur(5px);
-
 }
 
 .footer {
-  display:flex;
+  display: flex;
   align-items: flex-start;
   color: white;
   background-color: #6060c0;
-  width:100%;
+  width: 100%;
 }
 
-h1, h2{
+h1,
+h2 {
   color: white;
   text-align: center;
-  left:50%;
+  left: 50%;
 }

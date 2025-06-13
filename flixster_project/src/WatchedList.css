@@ -1,16 +1,16 @@
-.WatchedList{
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap:15px;
-    width:100%;
-    min-height: 70vh;
-    padding: 20px;
+.WatchedList {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  width: 100%;
+  min-height: 70vh;
+  padding: 20px;
 }
 
-h3{
-    font-size: 1.5rem;
-    color: white;
-    text-align: center;
+h3 {
+  font-size: 1.5rem;
+  color: white;
+  text-align: center;
 }
