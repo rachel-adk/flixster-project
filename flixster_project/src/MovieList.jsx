@@ -6,7 +6,7 @@ import SortMovies from './SortMovies';
 
 
 
-function MovieList ( {searchQuery, likedMovies, watchedMovies, toggleLiked, toggleWatched}) {
+function MovieList ( {searchQuery, likedMovies, watchedMovies, toggleLiked, toggleWatched, modalDisplay}) {
   const [movies, setMovies] = useState([])
   const [pageNumber, setPageNumber] = useState(1)
   const [isLoading, setIsLoading] = useState(true)
@@ -60,15 +60,6 @@ function MovieList ( {searchQuery, likedMovies, watchedMovies, toggleLiked, togg
       setError("Error loading movies");
     }
   }
-  const modalDisplay = async(movieId) => {
-    const [movieResponse, videoResponse] =  await Promise.all ([fetch(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}`), fetch(`https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=${apiKey}`)])
-    const movieData = await movieResponse.json();
-    const videoData = await videoResponse.json();
-    const MovieTrailer = videoData.results.find((video) => video.type === "Trailer" && video.site === "YouTube");
-    setSelectCard({...movieData, trailerKey: MovieTrailer ? MovieTrailer.key : null})
-
-  }
-
 
 
 
