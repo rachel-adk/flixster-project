@@ -18,6 +18,7 @@ const MovieCard = ({title, movieImage, rating, modalDisplay, movie_id, isLiked, 
 
     return (
         <div className='MovieCard' onClick={() => modalDisplay(movie_id)}>
+            test
             <div className='movieImage'>
                 <img src={movieImage} alt={title} />
             </div>
