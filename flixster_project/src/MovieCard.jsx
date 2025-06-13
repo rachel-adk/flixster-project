@@ -22,7 +22,7 @@ const MovieCard = ({title, movieImage, rating, modalDisplay, movie_id, isLiked, 
                 <img src={movieImage} alt={title} />
             </div>
             <div className='movieInfo'>
-                <h3>{title}</h3>
+                <p className='moviecard-title'>{title.length > 22 ? title.slice(0, 22) + "..." : title}</p>
                 <h4>Rating: {ratingFormat}</h4>
                 <div className='movieIcons'>
                     <p className='likeButton' onClick={clickLike}>
