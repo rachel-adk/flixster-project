@@ -122,4 +122,4 @@ N/A
 
 ### Shout out
 
-I would like to thank the instructors for their help! They were of great help.
+I would like to thank the instructors. They were of great help!
