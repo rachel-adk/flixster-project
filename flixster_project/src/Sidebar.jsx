@@ -5,7 +5,7 @@ const Sidebar = ({setPage}) => {
     // create state to change page
     const [isOpen, setIsOpen] = useState(false);
     return(
-        <div className="sidebar">
+        <nav className="navbar">
             <button className="sidebar_button" onClick={() => setIsOpen(!isOpen)}>
                 🟰
             </button>
@@ -16,7 +16,7 @@ const Sidebar = ({setPage}) => {
             <button onClick={() => { setPage('liked'); setIsOpen(false); }}>❤️Liked</button>
         </div>
         )}
-        </div>
+        </nav>
         )
 }
 export default Sidebar;

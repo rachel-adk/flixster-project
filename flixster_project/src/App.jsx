@@ -90,14 +90,17 @@ function App() {
   return (
     <div className="App">
       <header className="App_header">
-        <h1>Flixster 🎞️</h1>
+        <div className="banner">
+          <h1>Flixster🎞️</h1>
+          <Sidebar setPage={setPage} />
+        </div>
+
         <h2>
             {searchQuery ? `Search Results for "${searchQuery}"` :
             page === 'home' ? 'Now Playing' :
             page === 'liked' ? 'Favorites' :
             'Watched Movies'}
         </h2>
-        <Sidebar setPage={setPage} />
       </header>
 
       <main className="App_main">

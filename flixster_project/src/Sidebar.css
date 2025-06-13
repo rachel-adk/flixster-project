@@ -1,15 +1,14 @@
-.sidebar {
+.navbar {
     position: fixed;
     top: 0;
     left: 0;
-    width: 60px; /* slightly wider for icon/button visibility */
-    /* background-color:  rgb(46, 15, 118); */
+    width: 60px;
     color: white;
     padding: 0.5rem;
     box-shadow: 2px 0 5px rgba(171, 196, 202, 0.2);
     z-index: 9999;
     margin: 0;
-    /* Override any flex positioning from parent elements */
+   
     transform: none;
     display: block;
   }

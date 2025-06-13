@@ -95,7 +95,8 @@ const handleSort = async(value) =>{
 
 
 
-      <div className='MovieList'>
+      <main>
+        <div className='movieList'>
         {movies.map((movie, index) => <MovieCard key={index}
                                         title={movie.title}
                                         movieImage={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
@@ -107,7 +108,8 @@ const handleSort = async(value) =>{
                                         onToggleLiked={() => toggleLiked(movie)}
                                         onToggleWatched={() => toggleWatched(movie)}/>
       )}
-      </div>
+        </div>
+      </main>
         {!searchQuery && (
           <div className='loadMore'>
           <button onClick={loadMore}>
