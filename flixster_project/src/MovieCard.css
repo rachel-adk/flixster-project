@@ -8,7 +8,7 @@
     min-width: 200px;
     margin: 10px;
     overflow: hidden;
-    background-blend-mode: lighten;
+    background-blend-mode: darken;
     background-color: #6060c0;
     transition: all 0.3s ease;
     cursor: pointer;
@@ -47,9 +47,10 @@
 .movieImage img {
     display:flex;
     height: 350px;
-    width:250px;
+    width:300px;
     border-radius: 5px;
     border: 2px solid rgb(7, 51, 56);
+    align-items: center;
 
 }
 

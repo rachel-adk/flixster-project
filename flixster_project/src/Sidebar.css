@@ -3,12 +3,12 @@
     top: 0;
     left: 0;
     width: 60px;
-    color: white;
+    color:#333333;
     padding: 0.5rem;
     box-shadow: 2px 0 5px rgba(171, 196, 202, 0.2);
     z-index: 9999;
     margin: 0;
-   
+
     transform: none;
     display: block;
   }

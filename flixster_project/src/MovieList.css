@@ -6,7 +6,9 @@
     gap:15px;
     width:100%;
     min-height: 70vh;
-    padding: 20px;
+    padding-right: 10px;
+    padding-left: 10px;
+    box-sizing: border-box;
 }
 
 .loadMore{
