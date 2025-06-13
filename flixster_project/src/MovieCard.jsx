@@ -28,9 +28,9 @@ const MovieCard = ({
 
   return (
     <div className="MovieCard" onClick={() => modalDisplay(movie_id)}>
-      <div className="movieImage">
-        <img src={movieImage} alt={title} />
-      </div>
+      {/* <div className="movieImage"> */}
+      <img src={movieImage} alt={title} />
+      {/* </div> */}
       <div className="movieInfo">
         <p className="moviecard-title">
           {title.length > 22 ? title.slice(0, 22) + "..." : title}

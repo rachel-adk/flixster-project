@@ -12,6 +12,7 @@
   background-color: rgb(73, 73, 182);
   transition: all 0.3s ease;
   cursor: pointer;
+  /* width */
 }
 
 .MovieCard:hover {
@@ -42,13 +43,9 @@
   transform: scale(1.2);
 }
 
-.movieImage img {
-  display: flex;
-  height: 350px;
-  width: 300px;
-  border-radius: 5px;
-  border: 2px solid rgb(7, 51, 56);
+.MovieCard img {
   align-items: center;
+  object-fit: contain;
 }
 
 .movieInfo {
