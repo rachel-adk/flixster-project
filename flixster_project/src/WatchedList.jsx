@@ -13,7 +13,7 @@ function WatchedList({ likedMovies, watchedMovies, toggleLiked, toggleWatched, m
             <h3>You haven't watched any movies yet😪</h3>
           </div>
         ) : (
-likedMovies.map((movie, index) => (
+watchedMovies.map((movie, index) => (
           <MovieCard
 key={index}
             title={movie.title}
